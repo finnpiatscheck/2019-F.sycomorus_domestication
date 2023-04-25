@@ -25,6 +25,20 @@ Jose_L_Ficus_P3_R2_.fq.gz
 ```
 <i>NOTES: UNAM sequences are named "Ficus_3RAD_x_Rx_.fq.gz" and Nason lab sequences are named "Jose_L_Ficus_Px.x.fq.gz" and the lattest were renamed to fit ipyrad's file name expectations.</i>
 
+## Load ipyrad
+
+We assume that ipyrad was installed. There is the option to create a conda environment, but on ISU's HPC, ipyrad was installed by IT. The version is 0.9.85. To launch ipyrad:
+
+Check version:
+```
+module --ignore-cache spider py-ipyrad
+```
+Load module:
+```
+module load py-ipyrad/0.9.85-py39-openmpi4-3b5qw6i
+```
+
+
 ## Create parameter files
 
 ``` 
@@ -48,7 +62,7 @@ CGG, GATCC                     ## [8] [restriction_overhang]: Restriction overha
 6                              ## [11] [mindepth_statistical]: Min depth for statistical base calling
 6                              ## [12] [mindepth_majrule]: Min depth for majority-rule base calling
 10000                          ## [13] [maxdepth]: Max cluster depth within samples
-0.88                           ## [14] [clust_threshold]: Clustering threshold for de novo assembly
+0.95                           ## [14] [clust_threshold]: Clustering threshold for de novo assembly
 1                              ## [15] [max_barcode_mismatch]: Max number of allowable mismatches in barcodes
 2                              ## [16] [filter_adapters]: Filter for adapters/primers (1 or 2=stricter)
 30                             ## [17] [filter_min_trim_len]: Min length of reads after adapter trim
